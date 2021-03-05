@@ -1,7 +1,5 @@
 package swing_study.panel;
 
-import java.util.List;
-
 public class Department {
 	private int deptNo;
 	private String deptName;
@@ -49,7 +47,7 @@ public class Department {
 
 	@Override
 	public String toString() {
-		return String.format("Department [deptNo=%s, deptName=%s, floor=%s]", deptNo, deptName, floor);
+		return String.format("%s(%d)", deptName, deptNo);
 	}
 
 }
