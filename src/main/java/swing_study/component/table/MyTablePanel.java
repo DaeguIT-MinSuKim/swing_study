@@ -144,6 +144,10 @@ public class MyTablePanel extends JPanel {
 					setHorizontalAlignment(SwingConstants.RIGHT);
 			}
 			
+			if (isSelected) {
+				setBackground(Color.LIGHT_GRAY);
+			}
+			
 			return this;
 		}
 		
