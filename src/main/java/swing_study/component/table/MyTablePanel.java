@@ -61,8 +61,8 @@ public class MyTablePanel extends JPanel {
 		table.setModel(model);
 		
 		//컬럼 내용 정렬
-		setTableCellAlign(SwingConstants.CENTER, 0, 1);
-		setTableCellAlign(SwingConstants.RIGHT, 2, 3, 4, 5, 6);
+//		setTableCellAlign(SwingConstants.CENTER, 0, 1);
+//		setTableCellAlign(SwingConstants.RIGHT, 2, 3, 4, 5, 6);
 		
 		//컬럼별 너비 조정
 		setTableCellWidth(100, 150, 80, 80, 80, 100, 100);
@@ -135,7 +135,15 @@ public class MyTablePanel extends JPanel {
 			}else {
 				setBackground(Color.WHITE);
 			}
-			setHorizontalAlignment(SwingConstants.RIGHT);
+			
+			switch(column) {
+				case 0: case 1: 
+					setHorizontalAlignment(SwingConstants.CENTER);
+					break;
+				default : 
+					setHorizontalAlignment(SwingConstants.RIGHT);
+			}
+			
 			return this;
 		}
 		
