@@ -7,9 +7,12 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+import javax.swing.RowSorter;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 @SuppressWarnings("serial")
 public abstract class AbstractCustomTablePanel<T> extends JPanel {
@@ -29,6 +32,7 @@ public abstract class AbstractCustomTablePanel<T> extends JPanel {
 		table.setModel(getModel());
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		scrollPane.setViewportView(table);
+		
 	}
 	
 	public DefaultTableModel getModel() {
@@ -48,6 +52,9 @@ public abstract class AbstractCustomTablePanel<T> extends JPanel {
 		
 		CustomTableModel model = new CustomTableModel(data, getColumnNames());
 		table.setModel(model);
+		
+		RowSorter<TableModel> sorter = new TableRowSorter<TableModel>(model);
+		table.setRowSorter(sorter);
 		
 		setAlignAndWidth();
 	}
