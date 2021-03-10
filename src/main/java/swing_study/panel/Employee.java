@@ -7,13 +7,18 @@ public class Employee {
 	private Employee manager;
 	private int salary;
 	private Department dept;
-	
+
 	public Employee() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Employee(int empNo) {
 		this.empNo = empNo;
+	}
+
+	public Employee(int empNo, String empName) {
+		this.empNo = empNo;
+		this.empName = empName;
 	}
 
 	public Employee(int empNo, String empName, Title title, Employee manager, int salary, Department dept) {
