@@ -1,5 +1,6 @@
 package swing_study;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
@@ -41,7 +42,11 @@ import swing_study.frame.ContentPaneEx;
 import swing_study.frame.JPanelEx;
 import swing_study.layout.FrameLayout;
 import swing_study.layout.LayoutGuBun;
-import java.awt.BorderLayout;
+import swing_study.listener.AnonymousClassListener;
+import swing_study.listener.IndepClassListener;
+import swing_study.listener.InnerClassListener;
+import swing_study.listener.MouseAdapterEx;
+import swing_study.listener.MouseListenerEx;
 
 @SuppressWarnings("serial")
 public class SwingMain extends JFrame implements ActionListener {
@@ -296,6 +301,31 @@ public class SwingMain extends JFrame implements ActionListener {
 		});
 		
 		panel.add(btn18);
+		
+		panel_1 = new JPanel();
+		panel_1.setBorder(new TitledBorder(null, "\uC774\uBCA4\uD2B8 \uB9AC\uC2A4\uB108", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		contentPane.add(panel_1);
+		panel_1.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		btn19 = new JButton("독립클래스");
+		btn19.addActionListener(this);
+		panel_1.add(btn19);
+		
+		btn20 = new JButton("내부클래스");
+		btn20.addActionListener(this);
+		panel_1.add(btn20);
+		
+		btn21 = new JButton("익명클래스");
+		btn21.addActionListener(this);
+		panel_1.add(btn21);
+		
+		btn22 = new JButton("마우스리스너");
+		btn22.addActionListener(this);
+		panel_1.add(btn22);
+		
+		btn23 = new JButton("마우스어뎁터");
+		btn23.addActionListener(this);
+		panel_1.add(btn23);
 	}//
 	
 
@@ -311,6 +341,12 @@ public class SwingMain extends JFrame implements ActionListener {
 			}
 		}
 	};
+	private JPanel panel_1;
+	private JButton btn19;
+	private JButton btn20;
+	private JButton btn21;
+	private JButton btn22;
+	private JButton btn23;
 	
 	class MyActionListener implements ActionListener{
 		@Override
@@ -326,6 +362,21 @@ public class SwingMain extends JFrame implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btn23) {
+			actionPerformedBtn23(e);
+		}
+		if (e.getSource() == btn22) {
+			actionPerformedBtn22(e);
+		}
+		if (e.getSource() == btn21) {
+			actionPerformedBtn21(e);
+		}
+		if (e.getSource() == btn20) {
+			actionPerformedBtn20(e);
+		}
+		if (e.getSource() == btn19) {
+			actionPerformedBtn19(e);
+		}
 
 		if (e.getSource() == btn0402) {
 			actionPerformedBtn0402(e);
@@ -475,4 +526,24 @@ public class SwingMain extends JFrame implements ActionListener {
 		frame.setVisible(true);
 	}
 
+	protected void actionPerformedBtn19(ActionEvent e) {
+		IndepClassListener frame = new IndepClassListener();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtn20(ActionEvent e) {
+		InnerClassListener frame = new InnerClassListener();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtn21(ActionEvent e) {
+		AnonymousClassListener frame = new AnonymousClassListener();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtn22(ActionEvent e) {
+		MouseListenerEx frame = new MouseListenerEx();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtn23(ActionEvent e) {
+		MouseAdapterEx frame = new MouseAdapterEx();
+		frame.setVisible(true);
+	}
 }
