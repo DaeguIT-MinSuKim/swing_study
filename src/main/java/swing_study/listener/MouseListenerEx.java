@@ -22,6 +22,7 @@ public class MouseListenerEx extends JFrame {
 		setTitle("마우스 리스너");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
+		
 		contentPane = new JPanel();
 		contentPane.addMouseListener(new MyActionListener());
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

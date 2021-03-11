@@ -47,6 +47,8 @@ import swing_study.listener.IndepClassListener;
 import swing_study.listener.InnerClassListener;
 import swing_study.listener.MouseAdapterEx;
 import swing_study.listener.MouseListenerEx;
+import swing_study.menu.JMenuFrameEx;
+import swing_study.menu.JPopupMenuEx;
 
 @SuppressWarnings("serial")
 public class SwingMain extends JFrame implements ActionListener {
@@ -106,7 +108,7 @@ public class SwingMain extends JFrame implements ActionListener {
 	private void initialize() {
 		setTitle("스윙 스터디");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(10, 10, 823, 581);
+		setBounds(10, 10, 906, 581);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -326,6 +328,19 @@ public class SwingMain extends JFrame implements ActionListener {
 		btn23 = new JButton("마우스어뎁터");
 		btn23.addActionListener(this);
 		panel_1.add(btn23);
+		
+		panel_2 = new JPanel();
+		panel_2.setBorder(new TitledBorder(null, "JMenu & JPopupMenu", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		contentPane.add(panel_2);
+		panel_2.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		btn24 = new JButton("메뉴바");
+		btn24.addActionListener(this);
+		panel_2.add(btn24);
+		
+		btn25 = new JButton("팝업메뉴");
+		btn25.addActionListener(this);
+		panel_2.add(btn25);
 	}//
 	
 
@@ -347,6 +362,9 @@ public class SwingMain extends JFrame implements ActionListener {
 	private JButton btn21;
 	private JButton btn22;
 	private JButton btn23;
+	private JPanel panel_2;
+	private JButton btn24;
+	private JButton btn25;
 	
 	class MyActionListener implements ActionListener{
 		@Override
@@ -362,6 +380,12 @@ public class SwingMain extends JFrame implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btn25) {
+			actionPerformedBtn25(e);
+		}
+		if (e.getSource() == btn24) {
+			actionPerformedBtn24(e);
+		}
 		if (e.getSource() == btn23) {
 			actionPerformedBtn23(e);
 		}
@@ -544,6 +568,14 @@ public class SwingMain extends JFrame implements ActionListener {
 	}
 	protected void actionPerformedBtn23(ActionEvent e) {
 		MouseAdapterEx frame = new MouseAdapterEx();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtn24(ActionEvent e) {
+		JMenuFrameEx frame = new JMenuFrameEx();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtn25(ActionEvent e) {
+		JPopupMenuEx frame = new JPopupMenuEx();
 		frame.setVisible(true);
 	}
 }
