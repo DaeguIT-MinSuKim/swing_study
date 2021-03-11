@@ -36,7 +36,7 @@ public class JPopupMenuEx extends JFrame {
 		
 		contentPane.setComponentPopupMenu(createPopupMenu());
 		
-		contentPane.add(imgLabel, BorderLayout.SOUTH);
+		contentPane.add(imgLabel, BorderLayout.CENTER);
 	}
 
 	private JPopupMenu createPopupMenu() {
